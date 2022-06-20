@@ -25,9 +25,9 @@ export default Vue.extend({
   name: "IndexPage",
   computed: {
     weekNumber() {
-      let now = new Date();
-      let onejan = new Date(now.getFullYear(), 0, 1);
-      let weekNumber = Math.ceil(
+      const now = new Date();
+      const onejan = new Date(now.getFullYear(), 0, 1);
+      const weekNumber = Math.ceil(
         ((now.getTime() - onejan.getTime()) / 86400000 + onejan.getDay() + 1) /
           7
       );
