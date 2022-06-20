@@ -36,11 +36,6 @@ export default Vue.extend({
       );
       return weekNumber - 1;
     },
-    language() {
-      return {
-        language: this.$store.state.language,
-      };
-    },
   },
   components: { Ukebilde },
 });
