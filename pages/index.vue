@@ -9,21 +9,17 @@
       <h1 class="text-3xl pb-10">Uke: {{ weekNumber }}</h1>
 
       <List :weekNumber="weekNumber" class="text-4xl" />
+      <Ukebilde :weekNumber="weekNumber" class="flex flex-col justify-center" />
 
-      <h3 class="pt-20">Ukas bilde</h3>
-      <img
-        :src="`https://picsum.photos/id/${weekNumber}/200/200`"
-        alt="Tilfeldig bilde"
-        class="w-100 pb-20 self-center"
-      />
       <h2>Neste uke:</h2>
-      <List :weekNumber="weekNumber + 1" />
+      <List :weekNumber="weekNumber + 1" class="flex justify-center gap-6" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import Ukebilde from "~/components/Ukebilde.vue";
 
 export default Vue.extend({
   name: "IndexPage",
@@ -38,5 +34,6 @@ export default Vue.extend({
       return weekNumber - 1;
     },
   },
+  components: { Ukebilde },
 });
 </script>
