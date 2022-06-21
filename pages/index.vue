@@ -5,7 +5,9 @@
     >
       <h1>Vaskeliste</h1>
       <a href="https://github.com/audunhov/vaskeliste"
-        ><img src="../static/GitHub-Mark-64px.png" class="h-6"
+        ><img
+          src="https://github.githubassets.com/pinned-octocat.svg"
+          class="h-6"
       /></a>
     </nav>
     <div class="flex flex-col justify-center text-center text-gray-800 py-10">
