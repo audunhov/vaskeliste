@@ -10,7 +10,6 @@ $ npm install
 $ npm run dev
 
 # build for gh-pages
-$ npm run generate
 $ npm run deploy
 
 ```
