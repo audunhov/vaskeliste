@@ -1,7 +1,17 @@
 <template>
   <div>
     <nav
-      class="navbar navbar-expand-lg shadow-md p-2 bg-white relative flex items-center w-full justify-between"
+      class="
+        navbar navbar-expand-lg
+        shadow-md
+        p-2
+        bg-white
+        relative
+        flex
+        items-center
+        w-full
+        justify-between
+      "
     >
       <h1>Vaskeliste</h1>
       <a href="https://github.com/audunhov/vaskeliste"
@@ -30,13 +40,14 @@ export default Vue.extend({
   name: "IndexPage",
   computed: {
     weekNumber() {
-      const now = new Date();
-      const onejan = new Date(now.getFullYear(), 0, 1);
-      const weekNumber = Math.ceil(
-        ((now.getTime() - onejan.getTime()) / 86400000 + onejan.getDay() + 1) /
-          7
+      let now = new Date()
+      var d = new Date(
+        Date.UTC(now.getFullYear(), now.getMonth(), now.getDate())
       );
-      return weekNumber - 1;
+      var dayNum = d.getUTCDay() || 7;
+      d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+      var yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+      return Math.ceil(((d - yearStart) / 86400000 + 1) / 7);
     },
   },
   components: { Ukebilde },
