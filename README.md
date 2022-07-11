@@ -1,6 +1,6 @@
 # vaskeliste
 
-## Build Setup
+## Setup
 
 ```bash
 # install dependencies
@@ -8,9 +8,19 @@ $ npm install
 
 # serve with hot reload at localhost:3000
 $ npm run dev
+```
 
-# build for gh-pages
+## Build
+
+```bash
+# deploy to gh-pages
 $ npm run deploy
+
+# build static site
+$ npm run generate
+
+# build dynamic site
+$ npm run build
 
 ```
 
