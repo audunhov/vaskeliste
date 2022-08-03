@@ -40,13 +40,13 @@ export default Vue.extend({
   name: "IndexPage",
   computed: {
     weekNumber() {
-      let now = new Date()
-      var d = new Date(
+      const now = new Date()
+      const d = new Date(
         Date.UTC(now.getFullYear(), now.getMonth(), now.getDate())
       );
-      var dayNum = d.getUTCDay() || 7;
+      const dayNum = d.getUTCDay() || 7;
       d.setUTCDate(d.getUTCDate() + 4 - dayNum);
-      var yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+      const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
       return Math.ceil(((d - yearStart) / 86400000 + 1) / 7);
     },
   },
