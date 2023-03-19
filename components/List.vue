@@ -9,7 +9,7 @@ export default {
   props: ["weekNumber"],
   computed: {
     people() {
-      let names = ["Audun", "Ane", "Joachim", "Camila", "Sindre"];
+      let names = ["Audun", "Joakim", "Joachim", "Camila", "Sindre"];
       let p0 = (this.weekNumber + 0) % names.length;
       let p1 = (this.weekNumber + 2) % names.length;
       let p2 = (this.weekNumber + 4) % names.length;
