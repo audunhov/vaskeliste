@@ -1,0 +1,1 @@
+import{_ as s,k as t,l as a,K as c,j as o}from"./entry.34674a95.js";const n={},r={class:"min-h-screen bg-slate-50 p-5"},_={class:"max-w-screen-sm mx-auto"};function l(e,d){return o(),t("div",r,[a("div",_,[c(e.$slots,"default")])])}const i=s(n,[["render",l]]);export{i as default};
