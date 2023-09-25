@@ -14,7 +14,6 @@
     "lintfix": "npm run lint:js -- --fix"
   },
   "dependencies": {
-    "@nuxtjs/pwa": "^3.3.5",
     "core-js": "^3.32.2",
     "date-fns": "^2.30.0",
     "nuxt": "^3.7.3",
@@ -30,7 +29,6 @@
     "@nuxtjs/eslint-module": "^4.1.0",
     "@nuxtjs/tailwindcss": "^6.8.0",
     "eslint": "^8.50.0",
-    "eslint-plugin-nuxt": "^4.0.0",
     "eslint-plugin-vue": "^9.17.0",
     "gh-pages": "^6.0.0",
     "postcss": "^8.4.30"
