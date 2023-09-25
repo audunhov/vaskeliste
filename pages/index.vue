@@ -33,10 +33,10 @@
 </template>
 
 <script>
-import Vue from "vue";
+import {defineComponent} from "vue";
 import Ukebilde from "~/components/Ukebilde.vue";
 
-export default Vue.extend({
+export default defineComponent({
   name: "IndexPage",
   computed: {
     weekNumber() {

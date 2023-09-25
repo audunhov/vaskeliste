@@ -16,7 +16,7 @@ $ npm run dev
 # deploy to gh-pages
 $ npm run deploy
 
-# build static site
+# build public site
 $ npm run generate
 
 # build dynamic site
