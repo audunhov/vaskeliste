@@ -1,8 +1,8 @@
 export default defineNuxtConfig({
   target: 'static',
 
-  router: {
-    base: '/vaskeliste/'
+  app: {
+    baseURL: "/vaskeliste/"
   },
 
   meta: {
