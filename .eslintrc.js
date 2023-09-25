@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   root: true,
   env: {
     browser: true,
@@ -6,10 +6,6 @@ module.exports = {
   },
   extends: [
     '@nuxtjs/eslint-config-typescript',
-    'plugin:nuxt/recommended'
+      "plugin:vue/vue3-recommended"
   ],
-  plugins: [
-  ],
-  // add your custom rules here
-  rules: {}
 }

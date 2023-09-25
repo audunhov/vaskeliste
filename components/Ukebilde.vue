@@ -10,22 +10,15 @@
   </div>
 </template>
 
-<script>
-export default {
+<script setup lang="ts">
 
-  data() {
-    return {
-      url: null,
-    }
-  },
+const props = defineProps<{
+  weekNumber: number}>()
 
-  async created() {
-    // get picture from picsum using week number as id
-    const {url} = await fetch(`https://picsum.photos/id/${this.weekNumber}/600`);
-    this.url = url;
+const url = ref<string>()
 
-  },
-
-  props: ["weekNumber"],
-};
+onMounted(async () => {
+  const response = await fetch(`https://picsum.photos/id/${props.weekNumber}/600`);
+  url.value = response.url;
+})
 </script>
