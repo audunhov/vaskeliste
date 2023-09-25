@@ -5,8 +5,6 @@ export default defineNuxtConfig({
     base: '/vaskeliste/'
   },
 
-  ssr: false,
-
   meta: {
     title: 'Vaskeliste',
     meta: [
