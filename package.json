@@ -8,7 +8,7 @@
     "build": "nuxi build",
     "start": "nuxi start",
     "generate": "nuxi generate",
-    "deploy": "npm run generate && push-dir --dir=dist --branch=gh-pages --cleanup",
+    "deploy": "gh-pages -d dist",
     "lint:js": "eslint --ext \".js,.ts,.vue\" --ignore-path .gitignore .",
     "lint": "npm run lint:js",
     "lintfix": "npm run lint:js -- --fix"
@@ -27,7 +27,6 @@
     "eslint-plugin-vue": "^9.17.0",
     "gh-pages": "^6.0.0",
     "postcss": "^8.4.30",
-    "push-dir": "^0.4.1",
     "vite": "^4.4.9"
   }
 }
