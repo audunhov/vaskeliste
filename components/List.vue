@@ -1,7 +1,8 @@
 <template>
   <ul role="list" class="divide-y divide-gray-100">
-    <li v-for="person in people" :key="person" class="py-4">
-      {{ person }}
+    <li v-for="(person, index) in people" :key="person" class="py-4 flex items-center justify-between">
+      <span>{{ person }}</span>
+      <span class="text-gray-600">{{actions[index]}}</span>
     </li>
   </ul>
 </template>
@@ -11,6 +12,12 @@
 const props = defineProps<{
   weekNumber: number
 }>()
+
+const actions = [
+    "Living room",
+    "Bathroom",
+    "Hallway"
+]
 
 const people = computed(() => {
   let names = ["Audun", "Heta", "Tuva", "Silvano", "Sindre"];
