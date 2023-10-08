@@ -1,17 +1,13 @@
 <script setup lang="ts">
 
+import TextEditor from "~/components/TextEditor.vue";
 </script>
 
 <template>
-<div>
-
-  <ul class="list-disc list-inside">
-    <li>Wash the mirror</li>
-  </ul>
-
-</div>
+  <div >
+    <ClientOnly>
+      <TextEditor name="bathroom" />
+    </ClientOnly>
+  </div>
 </template>
 
-<style scoped>
-
-</style>

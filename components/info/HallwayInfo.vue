@@ -1,12 +1,13 @@
 <script setup lang="ts">
 
+import TextEditor from "~/components/TextEditor.vue";
 </script>
 
 <template>
-<ul class="list-disc list-inside">
-  <li>Take out glass and metal garbage</li>
-  <li>Take out pant :)</li>
-</ul>
+
+  <ClientOnly>
+      <TextEditor name="hallway" />
+</ClientOnly>
 </template>
 
 <style scoped>
