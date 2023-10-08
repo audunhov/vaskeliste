@@ -69,7 +69,10 @@ watchDebounced(data, (newValue, oldValue) => {
   <div v-if="!loading">
     <CKEditor.component @update:modelValue="changed = true" :editor="editor" v-model="data" :config="config"/>
   </div>
-  <div v-else class="h-4 bg-gray-200 mx-2 animate-pulse"/>
+  <div v-else class="space-y-1">
+    <div v-for="i in 8" :key="i" :style="{width: `${Math.random() * 30 + 30}%`}"
+         class="h-4 bg-gray-200 mx-2 animate-pulse"/>
+  </div>
 </template>
 
 <style scoped>
