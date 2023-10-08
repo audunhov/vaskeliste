@@ -15,7 +15,7 @@
 
       <div class="p-5 rounded-2xl bg-white shadow-sm">
         <div class="text-center text-sm">Cleaning this week</div>
-        <List :weekNumber="ws.weekNumber"/>
+        <List @set-action="handleSetAction" :weekNumber="ws.weekNumber"/>
       </div>
 
       <div class="p-5 space-y-5 rounded-2xl bg-white shadow-sm">
@@ -33,11 +33,18 @@
       </div>
     </div>
   </div>
+  <Modal :title="chosenAction || ''" v-model="modelOpen" >
+    <component :is="actions[chosenAction].component" />
+  </Modal>
 </template>
 
 <script setup lang="ts">
 import {useWeekStore} from "~/stores/week.js";
 import {format} from "date-fns";
+import Modal from "~/components/Modal.vue";
+import LivingRoomInfo from "~/components/info/LivingRoomInfo.vue";
+import BathroomInfo from "~/components/info/BathroomInfo.vue";
+import HallwayInfo from "~/components/info/HallwayInfo.vue";
 
 
 const ws = useWeekStore()
@@ -46,5 +53,27 @@ const numWeeks = ws.numWeeks
 
 const start = computed(() => format(ws.getStartOfWeek(ws.weekNumber), "dd MMM"))
 const end = computed(() => format(ws.getEndOfWeek(ws.weekNumber), "dd MMM"))
+
+
+const actions = {
+  "Living room": {
+    component: LivingRoomInfo
+  },
+  "Bathroom": {
+    component: BathroomInfo
+  },
+  "Hallway": {
+    component: HallwayInfo
+  }
+}
+
+const chosenAction = ref<keyof typeof actions>("Living Room")
+const modelOpen = ref(false)
+
+function handleSetAction(action: string) {
+  modelOpen.value = true
+  chosenAction.value = action
+}
+
 
 </script>

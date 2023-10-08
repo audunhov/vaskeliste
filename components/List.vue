@@ -2,7 +2,7 @@
   <ul role="list" class="divide-y divide-gray-100">
     <li v-for="(person, index) in people" :key="person" class="py-4 flex items-center justify-between">
       <span>{{ person }}</span>
-      <span class="text-gray-600">{{actions[index]}}</span>
+      <button class="text-gray-600 hover:text-gray-800 hover:bg-gray-100 border-b rounded hover:border-transparent px-1 border-dashed" @click="emit('setAction', actions[index])">{{actions[index]}}</button>
     </li>
   </ul>
 </template>
@@ -11,6 +11,10 @@
 
 const props = defineProps<{
   weekNumber: number
+}>()
+
+const emit = defineEmits<{
+  setAction: [action: string]
 }>()
 
 const actions = [
