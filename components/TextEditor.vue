@@ -23,11 +23,7 @@ onMounted(async () => {
       .single()
   const {body} = response.data
   data.value = body
-
   loading.value = false
-
-  subscribe()
-
 })
 
 const changed = ref(false)
@@ -41,19 +37,6 @@ async function update(name: string, body: string) {
       .select()
       .single()
   changed.value = false
-}
-
-function subscribe() {
-  supabase.channel('instruction-updates')
-      .on(
-          'postgres_changes',
-          {event: '*', schema: 'public', table: 'instruction'},
-          (payload) => {
-            const {body, name} = payload.new
-            if (name === props.name) data.value = body
-          }
-      )
-      .subscribe()
 }
 
 
