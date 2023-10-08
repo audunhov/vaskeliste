@@ -60,7 +60,7 @@ const config = {
 watchDebounced(data, (newValue, oldValue) => {
   if (!oldValue) return // Triggered by initial load
   update(props.name, newValue)
-}, {debounce: 1000})
+}, {debounce: 2000})
 
 
 </script>
