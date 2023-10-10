@@ -1,5 +1,5 @@
 import {defineStore} from "pinia";
-import {addWeeks, endOfWeek, getWeek, startOfWeek} from "date-fns";
+import {addWeeks, endOfISOWeek, getISOWeek, startOfISOWeek} from "date-fns";
 
 export const useWeekStore = defineStore("week", () => {
     const weekNumber = ref(getCurrentWeek())
@@ -11,10 +11,7 @@ export const useWeekStore = defineStore("week", () => {
 
     function getCurrentWeek() {
         const now = new Date()
-        return getWeek(now, {
-            weekStartsOn: 1,
-            firstWeekContainsDate: 4
-        })
+        return getISOWeek(now)
     }
 
     function getStartOfWeek(week: number) {
@@ -22,7 +19,7 @@ export const useWeekStore = defineStore("week", () => {
         const currentWeek = getCurrentWeek()
         const diff = week - currentWeek
         const newWeek = addWeeks(now, diff)
-        return startOfWeek(newWeek, {weekStartsOn: 1})
+        return startOfISOWeek(newWeek)
     }
 
     function getEndOfWeek(week: number) {
@@ -30,7 +27,7 @@ export const useWeekStore = defineStore("week", () => {
         const currentWeek = getCurrentWeek()
         const diff = week - currentWeek
         const newWeek = addWeeks(now, diff)
-        return endOfWeek(newWeek, {weekStartsOn: 1})
+        return endOfISOWeek(newWeek)
     }
 
     return {
