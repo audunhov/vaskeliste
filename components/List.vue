@@ -18,9 +18,9 @@ const emit = defineEmits<{
 }>()
 
 const actions = [
-    "Living room",
-    "Bathroom",
-    "Hallway"
+    "Kjøkken",
+    "Bad",
+    "Gang"
 ]
 
 const people = computed(() => {
