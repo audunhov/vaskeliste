@@ -14,37 +14,35 @@
       </div>
 
       <div class="p-5 rounded-2xl bg-white shadow-sm">
-        <div class="text-center text-sm">Cleaning this week</div>
+        <div class="text-center text-sm">Vaskere denne uka</div>
         <List @set-action="handleSetAction" :weekNumber="ws.weekNumber"/>
       </div>
 
       <div class="p-5 space-y-5 rounded-2xl bg-white shadow-sm">
         <button @click="ws.weekNumber = Math.min(ws.weekNumber + 1, numWeeks)"
                 class="block w-full p-3 cursor-pointer block bg-blue-600 rounded-lg shadow-sm font-semibold hover:bg-blue-500 text-center text-white">
-          Next week
-        </button>
+Neste uke        </button>
 
 
         <button @click="ws.weekNumber = Math.max(1, ws.weekNumber - 1)"
                 class="block w-full p-3 cursor-pointer block bg-opacity-80 bg-blue-600 rounded-lg shadow-sm font-semibold hover:bg-blue-500 text-center text-white">
-          Previous week
+          Forrige uke
         </button>
 
       </div>
     </div>
   </div>
-  <Modal :title="chosenAction || ''" v-model="modelOpen" >
-    <component :is="actions[chosenAction].component" />
+  <Modal :title="actions[chosenAction].label || ''" v-model="modelOpen" >
+    <LivingRoomInfo v-if="chosenAction === 'kitchen'" />
+    <BathroomInfo v-if="chosenAction === 'bathRoom'" />
+    <HallwayInfo v-if="chosenAction === 'hallway'" />
   </Modal>
 </template>
 
 <script setup lang="ts">
 import {useWeekStore} from "~/stores/week.js";
 import {format} from "date-fns";
-import Modal from "~/components/Modal.vue";
-import LivingRoomInfo from "~/components/info/LivingRoomInfo.vue";
-import BathroomInfo from "~/components/info/BathroomInfo.vue";
-import HallwayInfo from "~/components/info/HallwayInfo.vue";
+import { ref, computed } from "vue"
 
 
 const ws = useWeekStore()
@@ -54,25 +52,27 @@ const numWeeks = ws.numWeeks
 const start = computed(() => format(ws.getStartOfWeek(ws.weekNumber), "dd MMM"))
 const end = computed(() => format(ws.getEndOfWeek(ws.weekNumber), "dd MMM"))
 
+type Action = keyof typeof actions
 
 const actions = {
-  "Living room": {
-    component: LivingRoomInfo
+  kitchen: {
+    label: "Kjøkken",
   },
-  "Bathroom": {
-    component: BathroomInfo
+  bathRoom: {
+    label: "Bad",
   },
-  "Hallway": {
-    component: HallwayInfo
+  hallway: {
+    label: "Gang",
   }
 }
 
-const chosenAction = ref<keyof typeof actions>("Living Room")
+
+const chosenAction = ref<Action>("kitchen")
 const modelOpen = ref(false)
 
-function handleSetAction(action: string) {
-  modelOpen.value = true
+function handleSetAction(action: Action) {
   chosenAction.value = action
+  modelOpen.value = true
 }
 
 

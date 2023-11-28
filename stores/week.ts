@@ -1,8 +1,13 @@
 import {defineStore} from "pinia";
 import {addWeeks, endOfISOWeek, getISOWeek, startOfISOWeek} from "date-fns";
+import { onMounted, ref, computed } from "vue";
 
 export const useWeekStore = defineStore("week", () => {
     const weekNumber = ref(getCurrentWeek())
+
+    onMounted(() => {
+        weekNumber.value = getCurrentWeek()
+    })
 
     const numWeeks = computed(() => {
         const now = new Date()
