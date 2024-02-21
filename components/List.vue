@@ -33,7 +33,7 @@ const actions = [
 ]
 
 const people = computed(() => {
-  let names = ["Audun", "Anna", "Tuva", "Håkon", "Sindre"];
+  let names = ["Audun", "Amara", "Tuva", "Håkon", "Sindre"];
   let p0 = (props.weekNumber + 0) % names.length;
   let p1 = (props.weekNumber + 2) % names.length;
   let p2 = (props.weekNumber + 4) % names.length;
