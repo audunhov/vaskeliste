@@ -1,5 +1,7 @@
 # vaskeliste
 
+This project is discontinued as I have moved out
+
 ## Setup
 
 ```bash
@@ -12,10 +14,9 @@ $ npm run dev
 
 ## Build
 
-```bash
-# deploy to gh-pages
-$ npm run deploy
+Project is automatically built upon push to main branch. If you want to built it manually, use one of the following commands
 
+```bash
 # build public site
 $ npm run generate
 
@@ -23,5 +24,3 @@ $ npm run generate
 $ npm run build
 
 ```
-
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
